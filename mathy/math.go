@@ -7,6 +7,11 @@ type Number interface {
 	constraints.Integer | constraints.Float
 }
 
+// SignedNumber represents any number type that can be negative
+type SignedNumber interface {
+	constraints.Signed | constraints.Float
+}
+
 // Min returns the smallest value from the provided numbers
 func Min[T Number](nums ...T) T {
 	minNum := nums[0]
@@ -30,7 +35,7 @@ func Max[T Number](nums ...T) T {
 }
 
 // Abs returns the absolute value of the input number
-func Abs[T constraints.Signed](in T) T {
+func Abs[T SignedNumber](in T) T {
 	if in < 0 {
 		return -in
 	}
