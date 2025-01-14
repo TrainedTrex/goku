@@ -1,2 +1,2 @@
 # goku
- Set of utils in Go
+ Set of handy functions in Go
